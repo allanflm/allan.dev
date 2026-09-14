@@ -1,0 +1,37 @@
+/* A moldura (title-bar, botões, bordas) vem intocada do 7.css.
+   Fazemos flex column pra o miolo (window-body) preencher a altura
+   inline que o windowManager define, com scroll próprio. */
+.window {
+  display: flex;
+  flex-direction: column;
+}
+
+.window.is-minimized {
+  display: none;
+}
+
+.window-body {
+  flex: 1;
+  overflow: auto;
+  background: var(--bg-color);
+  color: var(--text-main);
+  border-top: 1px solid var(--border-color);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  padding: 16px;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.window-body p {
+  margin: 0 0 12px;
+  line-height: 1.6;
+}
+
+.window-body a {
+  color: var(--accent-blue);
+}
+
+.window-body .highlight-orange {
+  color: var(--accent-orange);
+}
