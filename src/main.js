@@ -10,12 +10,15 @@ import { registerApp } from './core/appRegistry.js';
 import { initDesktopIcons } from './ui/desktop.js';
 import { initTaskbar } from './ui/taskbar.js';
 import aboutApp from './apps/about/index.js';
+import projectsApp from './apps/projects/index.js';
+import resumeApp from './apps/resume/index.js';
+import contactApp from './apps/contact/index.js';
 
 const desktopEl = document.querySelector('#desktop');
 const taskbarEl = document.querySelector('#taskbar');
 
 initWindowManager(desktopEl);
-registerApp(aboutApp);
+[aboutApp, projectsApp, resumeApp, contactApp].forEach(registerApp);
 initDesktopIcons(desktopEl);
 initTaskbar(taskbarEl);
 
