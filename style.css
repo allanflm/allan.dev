@@ -55,7 +55,7 @@ body {
 .huge-title::after {
     content: "|";
     margin-left: 5px;
-    color: var(--orange);
+    color: var(--accent-orange);
     animation: blink 0.7s infinite;
 }
 
