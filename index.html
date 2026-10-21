@@ -1,15 +1,232 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!doctype html>
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Allan.dev</title>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Allan | Engenheiro de Dados</title>
+<meta name="description" content="Allan, engenheiro de dados especialista em Databricks. Pipelines confiáveis, lakehouse e dados prontos para decisão.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0d12; --surface:#131720; --line:#222836; --text:#e8ebf2; --muted:#9aa3b5;
+  --accent:#ff5a36; --accent-ink:#1a0a05;
+  --r:16px;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font:16px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;padding-bottom:84px}
+a{color:inherit}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+section{padding:72px 0}
+h2{font-size:clamp(1.6rem,4vw,2.2rem);letter-spacing:-.02em;line-height:1.15;margin-bottom:8px}
+.eyebrow{color:var(--accent);font-weight:600;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px}
+.sub{color:var(--muted);margin-bottom:36px;max-width:56ch}
+
+/* hero */
+.hero{padding:56px 0 40px}
+.hero .wrap{display:grid;gap:32px;align-items:center}
+.photo{width:148px;height:148px;border-radius:50%;padding:4px;background:linear-gradient(135deg,var(--accent),#7a2a18);box-shadow:0 0 60px -10px rgba(255,90,54,.45)}
+.photo svg,.photo img{width:100%;height:100%;border-radius:50%;display:block;object-fit:cover}
+h1{font-size:clamp(2.4rem,9vw,4.2rem);letter-spacing:-.035em;line-height:1.02;font-weight:800}
+.role{color:var(--accent);font-weight:600;margin:12px 0 18px;font-size:1.05rem}
+.lead{font-size:clamp(1.1rem,3vw,1.35rem);color:#cdd3e0;max-width:34ch}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 22px;border-radius:999px;font-weight:600;text-decoration:none;border:1px solid var(--line);transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn.ghost{background:var(--surface)}
+@media(min-width:760px){.hero .wrap{grid-template-columns:auto 1fr;gap:56px}.photo{width:220px;height:220px}}
+
+/* projects */
+.projects{display:grid;gap:22px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:grid}
+.card .img{aspect-ratio:16/9;background:#0e1118;border-bottom:1px solid var(--line)}
+.card .img svg{width:100%;height:100%;display:block}
+.card .body{padding:22px;display:grid;gap:14px}
+.card h3{font-size:1.25rem;letter-spacing:-.01em}
+.row b{display:block;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:2px}
+.row p{color:#c3c9d6;font-size:.96rem}
+.result{background:rgba(255,90,54,.09);border:1px solid rgba(255,90,54,.3);border-radius:12px;padding:12px 14px}
+.result p{color:var(--text);font-weight:500}
+@media(min-width:860px){.card{grid-template-columns:5fr 7fr}.card:nth-child(even){grid-template-columns:7fr 5fr}.card:nth-child(even) .img{order:2;border-left:1px solid var(--line);border-bottom:0}.card .img{aspect-ratio:auto;border-bottom:0;border-right:1px solid var(--line);min-height:260px}}
+
+/* tools */
+.tools{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.group{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px}
+.group h3{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:#0e1118;font-size:.9rem}
+.chip.hot{border-color:var(--accent);color:var(--accent)}
+
+/* timeline */
+.timeline{position:relative;list-style:none;padding:0 0 0 26px;border-left:2px solid var(--line);display:grid;gap:30px}
+.timeline li{position:relative}
+.timeline li::before{content:"";position:absolute;left:-34px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:3px solid var(--accent)}
+.when{color:var(--accent);font-size:.85rem;font-weight:600}
+.timeline h3{font-size:1.1rem;margin:2px 0}
+.timeline .co{color:var(--muted);font-size:.95rem;margin-bottom:6px}
+.timeline p{color:#c3c9d6;font-size:.96rem;max-width:62ch}
+
+/* contact */
+.contact{text-align:center}
+.contact .box{background:radial-gradient(circle at 50% 0%,rgba(255,90,54,.18),transparent 60%),var(--surface);border:1px solid var(--line);border-radius:24px;padding:56px 22px}
+.contact .cta{justify-content:center}
+footer{text-align:center;color:var(--muted);font-size:.85rem;padding:0 0 28px}
+
+/* fixed mobile button */
+.fab{display:none}
+@media(max-width:759px){
+  .fab{display:flex;position:fixed;left:16px;right:16px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:10;padding:16px;border-radius:999px;background:var(--accent);color:var(--accent-ink);font-weight:700;justify-content:center;text-decoration:none;box-shadow:0 10px 30px rgba(0,0,0,.5);transition:transform .25s,opacity .25s}
+  .fab.hide{transform:translateY(140%);opacity:0;pointer-events:none}
+}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+</style>
 </head>
 <body>
-    <div id="desktop"></div>
-    <div id="taskbar"></div>
 
-    <script type="module" src="/src/main.js"></script>
+<header class="hero">
+  <div class="wrap">
+    <div class="photo">
+      <img src="img/allan.jpeg" alt="Foto de Allan" width="220" height="220">
+    </div>
+    <div>
+      <p class="eyebrow">Olá, eu sou</p>
+      <h1>Allan</h1>
+      <p class="role">Engenheiro de Dados · Especialista em Databricks</p>
+      <p class="lead">Transformo dados dispersos em pipelines confiáveis que o negócio realmente usa para decidir.</p>
+      <div class="cta">
+        <a class="btn primary" href="https://www.linkedin.com/in/allanflm" target="_blank" rel="noopener">Chamar no LinkedIn →</a>
+        <a class="btn ghost" href="#projetos">Ver projetos</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section id="projetos">
+  <div class="wrap">
+    <p class="eyebrow rv">Projetos em destaque</p>
+    <h2 class="rv">Problemas reais, resultados medidos</h2>
+    <p class="sub rv">Três entregas que mostram como penso: começar pelo problema, construir o simples que funciona e provar com números.</p>
+    <div class="projects">
+
+      <article class="card rv">
+        <div class="img">
+          <svg viewBox="0 0 320 180" aria-hidden="true"><rect width="320" height="180" fill="#0e1118"/>
+            <g fill="#1b2130" stroke="#2c364d"><rect x="16" y="20" width="70" height="30" rx="6"/><rect x="16" y="75" width="70" height="30" rx="6"/><rect x="16" y="130" width="70" height="30" rx="6"/>
+            <rect x="125" y="62" width="70" height="56" rx="8" fill="#3a1d15" stroke="#ff5a36"/><rect x="234" y="20" width="70" height="30" rx="6"/><rect x="234" y="75" width="70" height="30" rx="6"/><rect x="234" y="130" width="70" height="30" rx="6"/></g>
+            <g stroke="#ff5a36" stroke-width="1.5" fill="none"><path d="M86 35C110 35 105 85 125 85M86 90h39M86 145C110 145 105 95 125 95M195 85C215 85 215 35 234 35M195 90h39M195 95C215 95 215 145 234 145"/></g>
+            <text x="160" y="94" fill="#ff5a36" font-size="11" text-anchor="middle" font-family="Inter,sans-serif" font-weight="700">LAKEHOUSE</text></svg>
+        </div>
+        <div class="body">
+          <h3>Plataforma Lakehouse no Databricks</h3>
+          <div class="row"><b>Problema</b><p>Dados em silos e relatórios divergentes entre áreas, com processamento lento e caro.</p></div>
+          <div class="row"><b>O que foi feito</b><p>Arquitetura medalhão (bronze, prata, ouro) com Delta Lake, Unity Catalog para governança e orquestração via Workflows.</p></div>
+          <div class="result"><b>Resultado</b><p>[Ex.: processamento 5x mais rápido e uma única fonte de verdade para todas as áreas]</p></div>
+        </div>
+      </article>
+
+      <article class="card rv">
+        <div class="img">
+          <svg viewBox="0 0 320 180" aria-hidden="true"><rect width="320" height="180" fill="#0e1118"/>
+            <g stroke="#2c364d"><path d="M20 150h280M20 110h280M20 70h280M20 30h280" opacity=".5"/></g>
+            <path d="M20 140C60 135 80 120 120 110S190 70 220 55 280 35 300 30" stroke="#ff5a36" stroke-width="3" fill="none"/>
+            <path d="M20 140C60 135 80 120 120 110S190 70 220 55 280 35 300 30V150H20z" fill="#ff5a36" opacity=".12"/>
+            <g fill="#ff5a36"><circle cx="120" cy="110" r="4"/><circle cx="220" cy="55" r="4"/><circle cx="300" cy="30" r="4"/></g>
+            <text x="22" y="22" fill="#9aa3b5" font-size="10" font-family="Inter,sans-serif">eventos/seg em streaming</text></svg>
+        </div>
+        <div class="body">
+          <h3>Ingestão em tempo quase real</h3>
+          <div class="row"><b>Problema</b><p>Dados chegavam com um dia de atraso, e o time de negócio decidia olhando o passado.</p></div>
+          <div class="row"><b>O que foi feito</b><p>Pipeline com Structured Streaming e Auto Loader, Delta Live Tables com regras de qualidade e alertas automáticos.</p></div>
+          <div class="result"><b>Resultado</b><p>[Ex.: latência de 24h para poucos minutos, com falhas detectadas antes de chegar ao dashboard]</p></div>
+        </div>
+      </article>
+
+      <article class="card rv">
+        <div class="img">
+          <svg viewBox="0 0 320 180" aria-hidden="true"><rect width="320" height="180" fill="#0e1118"/>
+            <g fill="#1b2130" stroke="#2c364d"><rect x="30" y="100" width="40" height="60" rx="4"/><rect x="90" y="80" width="40" height="80" rx="4"/><rect x="150" y="60" width="40" height="100" rx="4"/><rect x="210" y="40" width="40" height="120" rx="4"/></g>
+            <g fill="#ff5a36"><rect x="30" y="130" width="40" height="30" rx="4"/><rect x="90" y="115" width="40" height="45" rx="4"/><rect x="150" y="95" width="40" height="65" rx="4"/><rect x="210" y="70" width="40" height="90" rx="4"/></g>
+            <text x="270" y="60" fill="#ff5a36" font-size="26" font-weight="800" text-anchor="middle" font-family="Inter,sans-serif">-40%</text>
+            <text x="270" y="76" fill="#9aa3b5" font-size="9" text-anchor="middle" font-family="Inter,sans-serif">custo de cloud</text></svg>
+        </div>
+        <div class="body">
+          <h3>Otimização de custo e performance</h3>
+          <div class="row"><b>Problema</b><p>Clusters superdimensionados e jobs ineficientes elevavam a conta de cloud mês após mês.</p></div>
+          <div class="row"><b>O que foi feito</b><p>Revisão de clusters e políticas, Photon, particionamento e Z-ORDER, OPTIMIZE e VACUUM, além de monitoramento de custo por job.</p></div>
+          <div class="result"><b>Resultado</b><p>[Ex.: redução de ~40% no custo mensal sem perder SLA]</p></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="ferramentas">
+  <div class="wrap">
+    <p class="eyebrow rv">Ferramentas</p>
+    <h2 class="rv">O que eu domino</h2>
+    <p class="sub rv">Databricks no centro, com o ecossistema ao redor.</p>
+    <div class="tools">
+      <div class="group rv"><h3>Plataforma</h3><div class="chips"><span class="chip hot">Databricks</span><span class="chip hot">Delta Lake</span><span class="chip hot">Unity Catalog</span><span class="chip">Delta Live Tables</span><span class="chip">Workflows</span></div></div>
+      <div class="group rv"><h3>Linguagens</h3><div class="chips"><span class="chip hot">PySpark</span><span class="chip hot">SQL</span><span class="chip">Python</span><span class="chip">Scala</span></div></div>
+      <div class="group rv"><h3>Cloud</h3><div class="chips"><span class="chip">Azure</span><span class="chip">AWS</span><span class="chip">Terraform</span></div></div>
+      <div class="group rv"><h3>Orquestração e DevOps</h3><div class="chips"><span class="chip">Airflow</span><span class="chip">Git</span><span class="chip">CI/CD</span><span class="chip">Docker</span></div></div>
+      <div class="group rv"><h3>Consumo</h3><div class="chips"><span class="chip">Power BI</span><span class="chip">dbt</span><span class="chip">MLflow</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="experiencia">
+  <div class="wrap">
+    <p class="eyebrow rv">Experiência</p>
+    <h2 class="rv">Trajetória profissional</h2>
+    <p class="sub rv">Do mais recente ao mais antigo.</p>
+    <ol class="timeline">
+      <li class="rv"><span class="when">[Ano] – Atual</span><h3>Engenheiro de Dados</h3><p class="co">[Empresa atual]</p><p>Projeto e evolução de pipelines e do lakehouse em Databricks, com foco em governança, qualidade e custo.</p></li>
+      <li class="rv"><span class="when">[Ano] – [Ano]</span><h3>Engenheiro de Dados</h3><p class="co">[Empresa anterior]</p><p>Construção de ingestões batch e streaming, modelagem analítica e automação de cargas.</p></li>
+      <li class="rv"><span class="when">[Ano] – [Ano]</span><h3>Analista de Dados</h3><p class="co">[Primeira empresa]</p><p>Consultas SQL, relatórios e a base que levou à engenharia de dados.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section id="contato" class="contact">
+  <div class="wrap">
+    <div class="box rv">
+      <p class="eyebrow">Contato</p>
+      <h2>Vamos conversar?</h2>
+      <p class="sub" style="margin:8px auto 0">Tem uma vaga ou um desafio de dados? Me chame no LinkedIn, respondo rápido.</p>
+      <div class="cta">
+        <a class="btn primary" href="https://www.linkedin.com/in/allanflm" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn ghost" href="mailto:allanfelipedk@gmail.com?subject=Oportunidade%20-%20Engenharia%20de%20Dados">E-mail</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>© <span id="y"></span> Allan · Engenheiro de Dados</footer>
+
+<a class="fab" id="fab" href="https://www.linkedin.com/in/allanflm" target="_blank" rel="noopener">Chamar no LinkedIn</a>
+
+<script>
+document.getElementById('y').textContent = new Date().getFullYear();
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+}), {threshold:.12});
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+// esconde o botão fixo quando a seção de contato já está visível
+const fab = document.getElementById('fab');
+new IntersectionObserver(([e]) => fab.classList.toggle('hide', e.isIntersecting))
+  .observe(document.getElementById('contato'));
+</script>
 </body>
 </html>
